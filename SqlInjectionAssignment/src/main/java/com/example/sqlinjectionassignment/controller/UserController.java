@@ -21,9 +21,9 @@ public class UserController {
                             @PathVariable("password") String password){
         return this.userService.loginUnsafe(firstName,password);
     }
-    @GetMapping("/getbyidsafe/{firstName}/{password}")
-    public User getSafeUserById(@PathVariable("firstName") String firstName,
-                                @PathVariable("password") String password){
+    @GetMapping("/loginsafe/{firstName}/{password}")
+    public User loginSafe(@PathVariable("firstName") String firstName,
+                          @PathVariable("password") String password){
         return this.userService.loginSafe(firstName,password);
     }
 

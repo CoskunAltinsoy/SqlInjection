@@ -24,7 +24,8 @@ public class UserRepositoryImpl implements UserRepository{
     @Override
     public User loginSafe(String firstName, String password) {
         String jql = "select u from User u where u.firstName = :firstName and u.password = :password";
-        TypedQuery<User> userTypedQuery = entityManager.createQuery(jql, User.class);
+        TypedQuery<User> userTypedQuery = entityManager.createQuery(jql, User.class)
+                .setParameter("firstName",firstName).setParameter("password",password);
         return userTypedQuery.getResultList().get(0);
     }
 
